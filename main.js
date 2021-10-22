@@ -32,7 +32,7 @@ global.timestamp = {
 const PORT = process.env.PORT || 3000
 global.opts = new Object(yargs(process.argv.slice(2)).exitProcess(false).parse())
 
-global.prefix = new RegExp('^[' + (opts['prefix'] || '‎xzXZ/i!#$%+£¢€¥^°=¶∆×÷π√✓©®:;?&.\\-').replace(/[|\\{}()[\]^$+*?.\-\^]/g, '\\$&') + ']')
+global.prefix = new RegExp('^[' + (opts['prefix'] || '‎/').replace(/[|\\{}()[\]^$+*?.\-\^]/g, '\\$&') + ']')
 const ID = process.env.ID;//'nekoda'//
 
 global.DATABASE = new (require('./lib/database'))(`${ID || opts._[0] ?  ID + '_' || opts._[0]  + '_' : ''}database.json`, null, 2)
